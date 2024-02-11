@@ -1,13 +1,13 @@
 <div class="container mx-auto">
   <div class="flex justify-center">
     <div class="w-full md:w-120">
-      <%= form_tag({ controller: 'home', action: 'index' }, method: 'get', class: 'border p-4 rounded') do %>
+      <%= form_tag({ controller: 'home', action: 'index' }, method: 'get', class: 'border p-4 rounded', id: 'admin_form') do %>
         <div class="mb-4">
           <%= label_tag :url, 'Введіть URL:', class: 'block text-gray-700 font-bold mb-2' %>
-          <%= text_field_tag :url, @url, class: 'form-input mt-1 block w-full rounded-md border-gray-300' %>
+          <%= text_field_tag :url, @url, class: 'form-input mt-1 block w-full rounded-md border-gray-300', id: 'url_field' %>
         </div>
 
-        <%= submit_tag 'Сформувати запит', class: 'bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800' %>
+        <%= submit_tag 'Сформувати запит', class: 'bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800', id: 'submit_button' %>
       <% end %>
       <div class="mt-8 page-scraper">
       <% if @scraper %>
@@ -26,3 +26,16 @@
     </div>
   </div>
 </div>
+# <script>
+#   document.addEventListener('DOMContentLoaded', function () {
+#     const form = document.getElementById('admin_form');
+#     const field = document.getElementById('url_field');
+#     const submitButton = document.getElementById('submit_button');
+
+#     form.addEventListener('submit', function (event) {
+#       if (response.code === 200) {
+#         field.value = '';
+#       }
+#     });
+#   });
+# </script>
