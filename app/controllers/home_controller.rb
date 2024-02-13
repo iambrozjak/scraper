@@ -4,9 +4,13 @@ class HomeController < ApplicationController
   def index
     @url = params[:url]
     if @url.present?
-      @scraper = scrape
+      begin
+        @scraper = scrape
+      rescue StandardError => e
+        flash.now[:alert] = "Failed to retrieve data from the URL: #{e.message}"
+      end
     else
-      render :index, status: :unprocessable_entity, alert: "Введіть URL"
+      flash.now[:alert] = "Please enter a URL"
     end
   end
 
