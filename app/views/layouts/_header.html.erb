@@ -4,7 +4,7 @@
       <ul class="flex justify-between items-center pt-4 text-base text-gray-700 md:flex md:pt-0 w-full">
         <div class="flex justify-around items-center">
           <li>
-            <%= link_to "PageScraper", root_path, class: "bg-blue-500 text-white px-4 py-2 rounded-md" if user_signed_in? %>
+            <%= link_to("PageScraper", root_path, class: "bg-blue-500 text-white px-4 py-2 rounded-md") if user_signed_in? %>
           </li>
           <% if user_signed_in? %>
             <h3 class="m-0 text-warning ml-4">Welcome, <%= current_user.email %>!</h3>
