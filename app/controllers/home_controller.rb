@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!
-  before_action :check_url_presence
+  prepend_before_action :check_url_presence, only: [:index]
 
   def index
     @url = params[:url]
